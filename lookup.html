@@ -47,8 +47,26 @@
 
 
 
-            <input class="form-control mr-sm-2" type="text" placeholder="Search" id="sType">
-            <button class="btn btn-secondary my-2 my-sm-0"  id="btnSearch">Search</button>
+        <input class="form-control mr-sm-2" type="text" placeholder="Search" id="sType">
+        <button class="btn btn-secondary my-2 my-sm-0" id="btnSearch">Search</button>
+
+    </div>
+    <div class="jumbotron">
+
+            <strong>按微分方程检索</strong>
+        </p>
+        <hr class="my-4">
+        <p>在以下搜索框输入待搜索的微分方程，前缀，特征等即可检索到相关方程式</p>
+        <div class="form-check disabled">
+            <label class="form-check-label">
+              <input type="checkbox" class="form-check-input"  id = "equivalCheck">
+              兼容方程等同性
+            </label>
+          </div>
+
+
+        <input class="form-control mr-sm-2" type="text" placeholder="Search" id="sDiff">
+        <button class="btn btn-secondary my-2 my-sm-0" id="btnSearchDiff">Search</button>
 
     </div>
     <table class="table table-hover" id="indexTable">
@@ -66,6 +84,7 @@
 
         </tbody>
     </table>
+    <script src="dataset/equivalMap.js"></script>
     <script src="dataset/equation.js"></script>
     <script src="js/searchEquaJson.js"></script>
     <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
