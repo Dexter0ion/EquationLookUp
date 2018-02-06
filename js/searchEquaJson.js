@@ -15,7 +15,7 @@ $("#btnSearch").click(function () {
                 eHtml += '<td>' + edata[i].etype + '</td>'
                 eHtml += '<td>' + edata[i].ename + '</td>'
 
-                eHtml += '<td><strong>' + edata[i].equation[j] + '</strong></td>'
+                eHtml += '<td>$$' + edata[i].equation[j][1] + '$$<strong></td>'
 
                 eHtml += '<td>' + edata[i].desc + '</td>'
                 eHtml += '<tr>'
@@ -24,6 +24,7 @@ $("#btnSearch").click(function () {
 
     }
     $("#lookuptable").html(eHtml);
+    MathJax.Hub.Queue(['Typeset', MathJax.Hub]);
 })
 
 $("#btnSearchDiff").click(function () {
@@ -42,7 +43,7 @@ $("#btnSearchDiff").click(function () {
             console.log(value);
 
         }*/
-        console.log(equivalSet[0].x);
+
         
         var regx = "/"+equivalSet[0].x+"/g"; 
         var regy = "/"+equivalSet[0].y+"/g"; 
@@ -51,13 +52,12 @@ $("#btnSearchDiff").click(function () {
        var equivalDiff=searchDiff.replace(eval(regx),"x");
        equivalDiff=equivalDiff.replace(eval(regy),"y");
        equivalDiff=equivalDiff.replace(eval(regz),"z");
-       console.log(equivalDiff);
        searchDiff = equivalDiff;
     }
     var eHtml = ' ';
     for (var i = 0; i < edata.length; i++) {
         for (var j = 0; j < edata[i].equation.length; j++) {
-            var indexflag = edata[i].equation[j].indexOf(searchDiff);
+            var indexflag = String(edata[i].equation[j]).indexOf(searchDiff);
             if (indexflag != -1) {
                 if (i == 0)
                     eHtml += '<tr class="table-primary">';
@@ -66,8 +66,12 @@ $("#btnSearchDiff").click(function () {
                 eHtml += '<th scope="row">' + edata[i].eid + '</th>'
                 eHtml += '<td>' + edata[i].etype + '</td>'
                 eHtml += '<td>' + edata[i].ename + '</td>'
-
-                eHtml += '<td><strong>' + edata[i].equation[j] + '</strong></td>'
+                var a = edata[i].equation[j];
+                console.log(a);
+                if(a[1]!="")
+                    eHtml += '<td><strong>$$' +a[1] + '$$<strong></td>'
+                else 
+                    eHtml += '<td><strong>$$' +a[0] + '$$<strong></td>'   
 
                 eHtml += '<td>' + edata[i].desc + '</td>'
                 eHtml += '<tr>'
@@ -76,4 +80,5 @@ $("#btnSearchDiff").click(function () {
 
     }
     $("#lookuptable").html(eHtml);
+    MathJax.Hub.Queue(['Typeset', MathJax.Hub]);
 })

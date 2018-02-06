@@ -6,11 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/Minty.css" type="text/css">
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
     <script src="js/jquery-3.3.1.min.js"></script>
     <title>微分方程检索</title>
 </head>
 
 <body>
+
+
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <a class="navbar-brand" href="#">EquationLookUp</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01"
@@ -51,18 +55,18 @@
         <button class="btn btn-secondary my-2 my-sm-0" id="btnSearch">Search</button>
 
     </div>
+
     <div class="jumbotron">
 
-            <strong>按微分方程检索</strong>
+        <strong>按微分方程检索</strong>
         </p>
         <hr class="my-4">
         <p>在以下搜索框输入待搜索的微分方程，前缀，特征等即可检索到相关方程式</p>
         <div class="form-check disabled">
             <label class="form-check-label">
-              <input type="checkbox" class="form-check-input"  id = "equivalCheck">
-              兼容方程等同性
+                <input type="checkbox" class="form-check-input" id="equivalCheck"> 兼容方程等同性
             </label>
-          </div>
+        </div>
 
 
         <input class="form-control mr-sm-2" type="text" placeholder="Search" id="sDiff">
@@ -84,6 +88,8 @@
 
         </tbody>
     </table>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
     <script src="dataset/equivalMap.js"></script>
     <script src="dataset/equation.js"></script>
     <script src="js/searchEquaJson.js"></script>
